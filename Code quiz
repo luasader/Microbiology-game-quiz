@@ -1,0 +1,52 @@
+#quiz study game
+
+questions = ("Cual de las baccterias puede hacer transmision vertical?",
+             "Marque la incorrecta sobre el mecanismo de daño:",
+             "Cual no es producida por un virus?")
+
+
+options = (("S agalactiae", "Chlamydia", "H ducreyi", "C botulinum"),
+           ("C diphteriae / exotoxina", "S pneumoniae / Pared" , "S pyogenes / Capsula" , "N . meningitidis / LOS"),
+           ("Crup","Laringitis", "Epiglotitis", "Bronquiolitis" ),)
+
+answers = ("S agalactiae", "S pyogenes / Capsula", "Epiglotitis")
+
+guesses = []
+
+score = 0
+question_num = 0
+
+
+print("Responda as perguntas para completar seu estudo de microbiologia")
+print("-----------------------------")
+for question in questions:
+    print(question)
+    for option in options[question_num]:
+        print(option)
+    print("-----------------------------")
+    guess = input("Cual es la respuesta?")
+    if guess == answers [question_num]:
+        score +=1
+        print("Es correcta")
+    else:
+        print("No es esa la respuesta, tenes que estudiar un toque mas!")
+        print(f"{answers[question_num]} es la respuesta correcta")
+
+    question_num +=1
+
+print("----------------------------")
+print("         Resultados:        ")
+print("----------------------------")
+
+print("Answers: ", end= "")
+for answer in answers:
+    print(answer, end="")
+print()
+
+print("guesses: ", end="")
+for guess in guesses:
+    print(guess, end=" ")
+print()
+
+score = int(score / len(questions) *100)
+print(f"Acertaste el {score}%")
